@@ -1,0 +1,545 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto',sans-serif;
+    outline: none;
+}
+
+
+/* HEADER-START */
+
+header {
+    width: 100%;
+    padding: 5px 0px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    z-index: 111;
+}
+
+header .logo {
+    float: left;
+    padding: 10px 10px 10px 20px;
+    font-size: 30px;
+}
+header nav {
+    float: right;
+    padding: 10px;
+    
+}
+header nav a {
+    text-decoration: none;
+    color: white;
+    padding: 20px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: 500ms all;
+}
+header nav .btn-hire {
+    padding: 10px 20px;
+    border: 1px solid rgb(62, 107, 221);
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    border-radius: 2px;
+    margin: 0 10px;
+}
+header nav .btn-hire::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 0;
+    left: 0;
+    top: 0;
+    transition: 200ms;
+    z-index: -1;
+    background-color:  rgb(62, 107, 221);
+    box-shadow: 0px 0px 5px 0px rgb(62, 107, 221);
+}
+header nav .btn-hire:hover::after {
+    width: 100%;
+}
+
+header nav a::after {
+    overflow: hidden;
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    bottom: 0px;
+    left: -50px;
+    background-color: rgb(62, 107, 221);
+    transition: 500ms all;
+    opacity: 0;
+    animation-fill-mode:forwards;
+}
+header nav a:hover::after {
+    opacity: 1;
+    bottom: 0;
+    width: 100%;
+    left: 0%;
+    color: black;
+}
+header nav a:hover {
+    color: rgb(62, 107, 221);
+}
+.dashes {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 20px;
+    z-index: 11111;
+    cursor: pointer;
+    padding: 10px;
+}
+.dashes .dash {
+    width: 100%;
+    background-color: white;
+    padding: 1px;
+    margin: 2px;
+    transition: 200ms;
+}
+.dashes1 {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 20px;
+    z-index: 11111;
+    cursor: pointer;
+    padding: 10px;
+}
+.dashes1 .dash:nth-child(1) {
+    width: 100%;
+    background-color: white;
+    padding: 1px;
+    margin: 2px;
+    transition: 200ms;
+    transform: rotate(45deg);
+}
+.dashes1 .dash:nth-child(2) {
+    display: none;
+}
+.dashes1 .dash:nth-child(3) {
+    width: 100%;
+    background-color: white;
+    padding: 1px;
+    margin: 2px;
+    transition: 200ms;
+    transform: rotate(-45deg);
+}
+/* HEADER-END */
+
+/* ========================================== */
+
+/* HERO-START */
+.hero {
+    height: 100vh;
+    position: relative;
+    background-color: black;
+    box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.253) ;
+}
+.hero .hero-container {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-basis: 1 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+}
+.hero .hero-container  .text-data{
+    flex-grow: 2;
+    color: white;
+    align-self: center;
+    font-weight: bolder;
+    text-align: center;
+}
+.hero .hero-container  .text-data h1{
+    display: inline-block;
+    background-color: rgba(21, 63, 168, 0.19);
+    padding: 10px 10px;
+    margin: 20px 0px;
+    text-align: center;
+    animation-name: nameblink;
+    animation-duration: 1000ms;
+    animation-delay: 10ms;
+    animation-iteration-count: infinite;
+    transition: 200ms;
+}
+.hero .hero-container .text-data p {
+    text-align: center;
+}
+.hero .hero-container .image {
+    position: relative;
+    background-image: url('../images/hasnat.jpg');
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    filter:grayscale(1);
+    background-position: 0px 0px;
+    background-size: 250px;
+    background-repeat: no-repeat;
+    border: 2px solid white;
+    align-self: center;
+    transition: 200ms;
+    cursor: pointer;
+}
+.hero .hero-container .image:hover {
+    filter: grayscale(0);
+}
+.hero .hero-container .image  img{
+    filter: brightness(0.4) contrast(1.7) blur(0.1px);
+    border-radius: 50%;
+    
+}
+
+
+/*  for image vignitee */
+
+/* .hero .hero-container .image::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 150px;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 100%); 
+}
+.hero .hero-container .image::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 30px;
+    z-index: 1;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
+.hero .hero-container .image span{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    height: 150px;
+    z-index: 1;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0) 10%, rgba(0,0,0,1) 30%);
+} */
+
+/* HERO-END */
+
+/* =========================================== */
+
+/* SKILL-START */
+.skill {
+    position: relative;
+    height: auto;
+    background-color: rgba(21, 63, 168, 0.19);
+    overflow: hidden;
+}
+
+.skill .skill-container {
+    padding: 30px 0px 30px 0px;
+    position: relative;
+}
+
+.skill .skill-data{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+.skill-card {
+    width: 80%;
+    height: 70px;
+    padding: 10px 30px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.0253);
+    border-radius: 2px;
+    margin: 10px;
+    color: rgb(62, 107, 221);
+    background-color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.skill-card .skill-progress{
+    background-color: rgba(128, 128, 128, 0.16);
+    width: 100%;
+    height: 15px;
+    border-radius: 2px;
+    position: relative;
+}
+.skill-card .skill-progress .percent{
+    height: 100%;
+    background-color: rgb(62, 107, 221);
+    position: relative;
+}
+.skill-card .skill-progress .percent span {
+    position: absolute;
+    top: -45px;
+    right: -20px;
+    padding: 7px;
+    background-color: rgb(17, 17, 17);
+    color: white;
+    border-radius: 2px;
+    
+}
+.skill-card .skill-progress .percent span::before {
+    content: '';
+    position: absolute;
+    padding: 5px;
+    background-color: rgb(17,17,17);
+    bottom: -3px;
+    left: 41%;
+    transform: rotate(45deg);
+
+}
+
+.sub-skill{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 100%;
+}
+
+.sub-skill-card {
+    width: 90%;
+    height: 70px;
+    padding: 10px 30px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.0253);
+    border-radius: 2px;
+    margin: 0px 10px;
+    color: white;
+    background-color: rgb(17, 17, 17);
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.sub-skill-card .skill-progress{
+    background-color: white;
+
+    width: 100%;
+    height: 15px;
+    border-radius: 2px;
+    position: relative;
+}
+.sub-skill-card .skill-progress .percent{
+    height: 100%;
+    background-color: rgb(62, 107, 221);
+    position: relative;
+    font-size: 13px;
+}
+.sub-skill-card .skill-progress .percent span {
+    position: absolute;
+    top: -40px;
+    right: -20px;
+    padding: 5px;
+    background-color: white;
+    color: black;
+    border-radius: 2px;
+    
+}
+.sub-skill-card .skill-progress .percent span::before {
+    content: '';
+    position: absolute;
+    padding: 5px;
+    background-color: white;
+    bottom: -3px;
+    left: 41%;
+    transform: rotate(45deg);
+
+}
+
+
+/* SKILL-END */
+/* ================================================ */
+
+/* EDUCATION-START */
+.education{
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: rgba(21, 63, 168, 0.19);
+    
+}
+.education .education-container {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: auto;
+    padding: 30px 0px;
+}
+.education .education-container .education-card{
+    background-color: white;
+    padding: 20px 40px;
+    position: relative;
+    margin: 10px 0px;
+    border-left: 2px solid rgb(6, 113, 6);
+    border-radius: 2px;
+    transition: 200ms;
+}
+.education .education-container .education-card:hover{
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.329);
+}
+.education .education-container .education-card::after {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: -20px;
+    height: 150%;
+    width: 2px;
+    background-color: rgba(128, 128, 128, 0.356);
+}
+
+
+/* EDUCATION-END */
+
+/* ================================================= */
+
+/* CONTACT-START */
+.contact {
+    height: 100vh;
+    background-color: rgb(17, 17, 17);
+    color: black;
+    font-weight: bolder;
+    position: relative;
+}
+
+.contact .contact-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    width: 45%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    border-radius: 100px;
+}
+.contact .contact-container .contact-card{
+    margin: 30px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 200ms;
+}
+.contact .contact-container .contact-card:hover{
+    scale: 1.3;
+}
+/* CONTACT-END */
+
+/* MISC-STARTS */
+
+.nomrg{
+    margin: 10px 10px 0px 10px;
+}
+.gotop{
+    top: -1000px;
+    transition: 300ms;
+}
+.gonormal{
+    top: 0px;
+    transition: 300ms;
+}
+@keyframes nameblink{
+    0%{
+        border-right: 2px solid white;
+    }
+    50%{
+        border-right: none;
+    }
+    100%{
+        border-right: 2px solid white;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .contact .contact-container{
+        width: 100%;
+        border-radius: 0px;
+    }
+    .contact .contact-container .contact-card{
+        margin: 20px;
+    }
+    .education .education-container {
+        width: 100%;
+    }
+    .education .education-container .education-card{
+        padding: 10px 20px;
+    }
+    .education .education-container .education-card .education-textdata h2{
+        font-size: 16px;
+    }
+    .education .education-container .education-card .education-textdata h2 i{
+        font-size: 14px !important;
+    }
+    .education .education-container .education-card::after {
+        display: none;
+    }
+    .skill-card {
+        width: 90%;
+        height: 60px;
+        padding: 10px 20px;
+    }
+    .skill-card .skill-progress{
+        height: 5px;
+    }
+    .skill-card .skill-progress .percent span {
+        position: absolute;
+        top: -35px;
+        right: -18px;
+        padding: 5px;
+        font-size: 14px;
+        
+    }
+    .sub-skill-card {
+        width: 80%;
+        height: 50px;
+        padding: 10px 20px;
+    }
+    .sub-skill-card .skill-progress{
+        width: 100%;
+        height: 5px;
+    }
+    .hero .hero-container {
+        display: flex;
+        flex-direction: column-reverse;
+        flex-basis: 1 1;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 80%;
+    }
+    .hero .hero-container .image {
+        height: 150px;
+        width: 150px;
+        background-size: 150px;
+    }
+    header nav {
+        float: right;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 0px;
+        background-color: black;
+        width: 60%;
+        
+    }
+  }
